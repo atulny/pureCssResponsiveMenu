@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>Pure CSS</title>
+<style>
+	.menu-container{
+		position: fixed;
+		top:0;
+		left:0;
+		width:100%;
+		height:50px;
+		background-color:white;    text-align: center;
+	}
+	.ham-burger {
+		display: none;
+		width: 24px;
+		height: 20px;
+		border:1px solid #ccc;
+		box-shadow: 1px 1px 1px #ccc;
+		border-radius: 4px;cursor: pointer;text-align: center;
+	}
+	.expandip {
+		position: absolute;
+		visibility: hidden;
+	}
+
+	.scope-menu {
+
+		transition: all .5s ease-out !important;
+		white-space: nowrap;
+		overflow: hidden;
+
+	}
+	.scope-menu .menu-items{
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		background-color: #f9f9f9;
+	}
+	.scope-menu .menu-items li{
+		overflow: hidden;position: relative;border-right: 1px solid #ccc;
+		display:inline-block
+	}
+	.scope-menu .scope-menu-item {
+		display: block;
+		padding: 0 5px;
+		line-height: 20px;
+
+		text-decoration: none;
+		color: black;
+		font-size: .9rem;
+	}
+	.itemip:checked + a.scope-menu-item{
+		font-weight: 700;
+	}
+
+	.scope-menu  li:hover {
+		background: linear-gradient(to bottom, rgba(207,231,250,1) 0%,rgba(99,147,193,1) 100%);
+	}
+	 a:active {color:red}
+	@media (max-width: 600px) {
+
+		.ham-burger {
+			display: block;
+		}
+		.expandip:checked ~ .cloak{
+			position: fixed;top:0;left:0;height: 100vh;width: 100vw;
+			z-index:1;background-color:#eee;opacity:.1;
+		}
+		.expandip:checked + .scope-menu .menu-items{
+			max-height: 100vh;
+			border:1px solid #aaa;
+			box-shadow: 2px 2px 5px #aaa;
+			border-radius: 4px;
+			transform:translateX(0px)
+		}
+
+		.scope-menu {height: 20px;
+			top: 1px;position: absolute;
+			overflow: visible;transform: translateX(0);
+			 left:0;width: 30px;z-index:2;
+		}
+		.scope-menu  .menu-items{z-index:2;
+			overflow: hidden;
+			height: calc(100vh - 50px);width: 150px;
+			transform:translateX(-150px);transition: transform .25s ease-out !important;transition-delay: .5s;
+		}
+		.scope-menu .menu-items li {
+			display: block;
+			border-bottom: 1px solid #ccc;
+			border-right: none;
+		}
+
+	}
+	 .content-wrap{
+	    padding-top:40px;
+	 }
+
+</style>
+</head>
+<body>
+
+<div>
+	<div class="menu-container">
+		<input type='checkbox'  id='ham-burger-expandip' class='expandip'/>
+		<div class='scope-menu center-horizontal'>
+			<label class='ham-burger' for='ham-burger-expandip'>|||</label>
+			<ul class='menu-items'>
+				<li><a href="#menu1" class="scope-menu-item">Menu 1</a></li>
+				<li><a href="#menu2" class="scope-menu-item">Menu 2</a></li>
+				<li><a href="#menu3" class="scope-menu-item">Menu 3</a></li>
+				<li><a href="#menu4" class="scope-menu-item">Menu 4</a></li>
+				<li><a href="#menu5" class="scope-menu-item">Menu 5</a></li>
+				<li><a href="#menu6" class="scope-menu-item">Menu 6</a></li>
+				<li><a href="#menu7" class="scope-menu-item">Menu 7</a></li>
+				<li><a href="#menu8" class="scope-menu-item">Menu 8</a></li>
+			
+			</ul>
+		</div>
+		<label class='cloak' for='ham-burger-expandip'></label>
+	</div>
+</div>
+<div class="content-wrap" id="menu1">
+	<h1>Menu 1</h1>
+	Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</div>
+<div class="content-wrap" id="menu2">
+	<h1>Menu 2</h1>
+	Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+	The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+</div>
+<div class="content-wrap" id="menu3">
+	<h1>Menu 3</h1>
+	t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+</div>
+<div class="content-wrap" id="menu4">
+	<h1>Menu 4</h1>
+	There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+</div>
+<div class="content-wrap" id="menu5">
+	<h1>Menu 5</h1>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean urna eros, vestibulum ac tristique vel, placerat at massa. Sed convallis eget mi nec maximus. Curabitur nulla risus, varius vitae eleifend id, commodo eget enim. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus consequat lobortis ipsum, consectetur auctor quam dignissim vel. Vestibulum pharetra libero sapien, consequat porttitor purus euismod ut. Aliquam ac nisi est.
+
+	Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut tempus, urna ac commodo sagittis, erat nisi faucibus metus, eget venenatis turpis justo in massa. Nullam varius elit arcu, porttitor laoreet nisi pulvinar quis. Morbi posuere mi quis ante feugiat condimentum. Nunc vel aliquam orci, ut interdum augue. Cras mattis lorem non neque tincidunt, vitae congue nisl venenatis. Pellentesque pellentesque ac est et convallis. Nunc non rhoncus ligula. Donec posuere enim in nulla tincidunt, in sollicitudin elit commodo. Nullam ac ante consequat sapien molestie cursus sed hendrerit eros. Cras molestie venenatis facilisis. Curabitur et elit feugiat, iaculis mi eget, consequat leo. Vivamus commodo lectus eu mauris blandit accumsan.
+
+	Nam aliquam lorem vitae risus vehicula tristique. Morbi quis tristique mauris. Vestibulum convallis massa ut augue dictum, finibus fermentum elit aliquam. Cras sodales ullamcorper libero, sed fermentum est blandit vitae. Integer tempor suscipit nunc non pellentesque. Sed porta tortor a lacus sodales semper. Nunc ornare eros ac mi dignissim dictum. Aliquam elit leo, tincidunt eget ornare sit amet, finibus vel est.
+
+	Nullam non eros convallis risus imperdiet pretium sed sit amet massa. Pellentesque ultrices libero at ante commodo blandit. Vivamus est felis, malesuada eu odio ac, mollis dignissim enim. Sed cursus nunc tristique semper porttitor. Proin fermentum augue sit amet maximus blandit. Donec et quam non risus semper varius. Mauris ipsum massa, laoreet in tincidunt id, ultricies cursus eros. Donec sem nunc, rhoncus sagittis nulla sit amet, dapibus mollis nunc. Phasellus vehicula efficitur urna nec dictum. Etiam mattis lectus a scelerisque hendrerit. Donec massa elit, vestibulum a tortor et, egestas fermentum massa. Aliquam erat volutpat.
+
+	Vivamus ultricies non metus ut viverra. Donec sed fermentum sapien, id facilisis arcu. Etiam quis lectus nisl. Phasellus aliquet rhoncus risus, eget imperdiet sem euismod nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce lacinia, ipsum non laoreet congue, arcu ex laoreet tortor, non rutrum nisl nisi in leo. Sed maximus massa eget ligula posuere scelerisque. In hac habitasse platea dictumst. Quisque pellentesque sagittis velit, nec congue erat tristique vel. Duis sit amet pharetra est, non tempus nisi. In ultricies dui id nulla molestie ornare. Duis mollis tincidunt dui facilisis feugiat. Aenean bibendum dui ligula. In sapien risus, placerat quis venenatis vitae, pretium quis urna.
+</div>
+<div class="content-wrap" id="menu6">
+	<h1>Menu 6</h1>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean urna eros, vestibulum ac tristique vel, placerat at massa. Sed convallis eget mi nec maximus. Curabitur nulla risus, varius vitae eleifend id, commodo eget enim. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus consequat lobortis ipsum, consectetur auctor quam dignissim vel. Vestibulum pharetra libero sapien, consequat porttitor purus euismod ut. Aliquam ac nisi est.
+
+	Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut tempus, urna ac commodo sagittis, erat nisi faucibus metus, eget venenatis turpis justo in massa. Nullam varius elit arcu, porttitor laoreet nisi pulvinar quis. Morbi posuere mi quis ante feugiat condimentum. Nunc vel aliquam orci, ut interdum augue. Cras mattis lorem non neque tincidunt, vitae congue nisl venenatis. Pellentesque pellentesque ac est et convallis. Nunc non rhoncus ligula. Donec posuere enim in nulla tincidunt, in sollicitudin elit commodo. Nullam ac ante consequat sapien molestie cursus sed hendrerit eros. Cras molestie venenatis facilisis. Curabitur et elit feugiat, iaculis mi eget, consequat leo. Vivamus commodo lectus eu mauris blandit accumsan.
+
+	Nam aliquam lorem vitae risus vehicula tristique. Morbi quis tristique mauris. Vestibulum convallis massa ut augue dictum, finibus fermentum elit aliquam. Cras sodales ullamcorper libero, sed fermentum est blandit vitae. Integer tempor suscipit nunc non pellentesque. Sed porta tortor a lacus sodales semper. Nunc ornare eros ac mi dignissim dictum. Aliquam elit leo, tincidunt eget ornare sit amet, finibus vel est.
+
+	Nullam non eros convallis risus imperdiet pretium sed sit amet massa. Pellentesque ultrices libero at ante commodo blandit. Vivamus est felis, malesuada eu odio ac, mollis dignissim enim. Sed cursus nunc tristique semper porttitor. Proin fermentum augue sit amet maximus blandit. Donec et quam non risus semper varius. Mauris ipsum massa, laoreet in tincidunt id, ultricies cursus eros. Donec sem nunc, rhoncus sagittis nulla sit amet, dapibus mollis nunc. Phasellus vehicula efficitur urna nec dictum. Etiam mattis lectus a scelerisque hendrerit. Donec massa elit, vestibulum a tortor et, egestas fermentum massa. Aliquam erat volutpat.
+
+	Vivamus ultricies non metus ut viverra. Donec sed fermentum sapien, id facilisis arcu. Etiam quis lectus nisl. Phasellus aliquet rhoncus risus, eget imperdiet sem euismod nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce lacinia, ipsum non laoreet congue, arcu ex laoreet tortor, non rutrum nisl nisi in leo. Sed maximus massa eget ligula posuere scelerisque. In hac habitasse platea dictumst. Quisque pellentesque sagittis velit, nec congue erat tristique vel. Duis sit amet pharetra est, non tempus nisi. In ultricies dui id nulla molestie ornare. Duis mollis tincidunt dui facilisis feugiat. Aenean bibendum dui ligula. In sapien risus, placerat quis venenatis vitae, pretium quis urna.
+</div>
+<div class="content-wrap" id="menu7">
+	<h1>Menu 7</h1>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean urna eros, vestibulum ac tristique vel, placerat at massa. Sed convallis eget mi nec maximus. Curabitur nulla risus, varius vitae eleifend id, commodo eget enim. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus consequat lobortis ipsum, consectetur auctor quam dignissim vel. Vestibulum pharetra libero sapien, consequat porttitor purus euismod ut. Aliquam ac nisi est.
+
+	Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut tempus, urna ac commodo sagittis, erat nisi faucibus metus, eget venenatis turpis justo in massa. Nullam varius elit arcu, porttitor laoreet nisi pulvinar quis. Morbi posuere mi quis ante feugiat condimentum. Nunc vel aliquam orci, ut interdum augue. Cras mattis lorem non neque tincidunt, vitae congue nisl venenatis. Pellentesque pellentesque ac est et convallis. Nunc non rhoncus ligula. Donec posuere enim in nulla tincidunt, in sollicitudin elit commodo. Nullam ac ante consequat sapien molestie cursus sed hendrerit eros. Cras molestie venenatis facilisis. Curabitur et elit feugiat, iaculis mi eget, consequat leo. Vivamus commodo lectus eu mauris blandit accumsan.
+
+	Nam aliquam lorem vitae risus vehicula tristique. Morbi quis tristique mauris. Vestibulum convallis massa ut augue dictum, finibus fermentum elit aliquam. Cras sodales ullamcorper libero, sed fermentum est blandit vitae. Integer tempor suscipit nunc non pellentesque. Sed porta tortor a lacus sodales semper. Nunc ornare eros ac mi dignissim dictum. Aliquam elit leo, tincidunt eget ornare sit amet, finibus vel est.
+
+	Nullam non eros convallis risus imperdiet pretium sed sit amet massa. Pellentesque ultrices libero at ante commodo blandit. Vivamus est felis, malesuada eu odio ac, mollis dignissim enim. Sed cursus nunc tristique semper porttitor. Proin fermentum augue sit amet maximus blandit. Donec et quam non risus semper varius. Mauris ipsum massa, laoreet in tincidunt id, ultricies cursus eros. Donec sem nunc, rhoncus sagittis nulla sit amet, dapibus mollis nunc. Phasellus vehicula efficitur urna nec dictum. Etiam mattis lectus a scelerisque hendrerit. Donec massa elit, vestibulum a tortor et, egestas fermentum massa. Aliquam erat volutpat.
+
+	Vivamus ultricies non metus ut viverra. Donec sed fermentum sapien, id facilisis arcu. Etiam quis lectus nisl. Phasellus aliquet rhoncus risus, eget imperdiet sem euismod nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce lacinia, ipsum non laoreet congue, arcu ex laoreet tortor, non rutrum nisl nisi in leo. Sed maximus massa eget ligula posuere scelerisque. In hac habitasse platea dictumst. Quisque pellentesque sagittis velit, nec congue erat tristique vel. Duis sit amet pharetra est, non tempus nisi. In ultricies dui id nulla molestie ornare. Duis mollis tincidunt dui facilisis feugiat. Aenean bibendum dui ligula. In sapien risus, placerat quis venenatis vitae, pretium quis urna.
+</div>
+<div class="content-wrap" id="menu8">
+	<h1>Menu 8</h1>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean urna eros, vestibulum ac tristique vel, placerat at massa. Sed convallis eget mi nec maximus. Curabitur nulla risus, varius vitae eleifend id, commodo eget enim. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus consequat lobortis ipsum, consectetur auctor quam dignissim vel. Vestibulum pharetra libero sapien, consequat porttitor purus euismod ut. Aliquam ac nisi est.
+
+	Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut tempus, urna ac commodo sagittis, erat nisi faucibus metus, eget venenatis turpis justo in massa. Nullam varius elit arcu, porttitor laoreet nisi pulvinar quis. Morbi posuere mi quis ante feugiat condimentum. Nunc vel aliquam orci, ut interdum augue. Cras mattis lorem non neque tincidunt, vitae congue nisl venenatis. Pellentesque pellentesque ac est et convallis. Nunc non rhoncus ligula. Donec posuere enim in nulla tincidunt, in sollicitudin elit commodo. Nullam ac ante consequat sapien molestie cursus sed hendrerit eros. Cras molestie venenatis facilisis. Curabitur et elit feugiat, iaculis mi eget, consequat leo. Vivamus commodo lectus eu mauris blandit accumsan.
+
+	Nam aliquam lorem vitae risus vehicula tristique. Morbi quis tristique mauris. Vestibulum convallis massa ut augue dictum, finibus fermentum elit aliquam. Cras sodales ullamcorper libero, sed fermentum est blandit vitae. Integer tempor suscipit nunc non pellentesque. Sed porta tortor a lacus sodales semper. Nunc ornare eros ac mi dignissim dictum. Aliquam elit leo, tincidunt eget ornare sit amet, finibus vel est.
+
+	Nullam non eros convallis risus imperdiet pretium sed sit amet massa. Pellentesque ultrices libero at ante commodo blandit. Vivamus est felis, malesuada eu odio ac, mollis dignissim enim. Sed cursus nunc tristique semper porttitor. Proin fermentum augue sit amet maximus blandit. Donec et quam non risus semper varius. Mauris ipsum massa, laoreet in tincidunt id, ultricies cursus eros. Donec sem nunc, rhoncus sagittis nulla sit amet, dapibus mollis nunc. Phasellus vehicula efficitur urna nec dictum. Etiam mattis lectus a scelerisque hendrerit. Donec massa elit, vestibulum a tortor et, egestas fermentum massa. Aliquam erat volutpat.
+
+	Vivamus ultricies non metus ut viverra. Donec sed fermentum sapien, id facilisis arcu. Etiam quis lectus nisl. Phasellus aliquet rhoncus risus, eget imperdiet sem euismod nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce lacinia, ipsum non laoreet congue, arcu ex laoreet tortor, non rutrum nisl nisi in leo. Sed maximus massa eget ligula posuere scelerisque. In hac habitasse platea dictumst. Quisque pellentesque sagittis velit, nec congue erat tristique vel. Duis sit amet pharetra est, non tempus nisi. In ultricies dui id nulla molestie ornare. Duis mollis tincidunt dui facilisis feugiat. Aenean bibendum dui ligula. In sapien risus, placerat quis venenatis vitae, pretium quis urna.
+</div>
+</body>
+</html>
